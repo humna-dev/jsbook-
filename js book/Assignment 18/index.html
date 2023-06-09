@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./script/app.js"></script>
+</head>
+<body>
+
+    <h2>Image Modal</h2>
+
+    <!-- Image Gallery -->
+    <div class="image-gallery">
+        <img src="image1.jpg" alt="Image 1" onclick="openModal('image1.jpg')">
+        <img src="image2.jpg" alt="Image 2" onclick="openModal('image2.jpg')">
+        <img src="image3.jpg" alt="Image 3" onclick="openModal('image3.jpg')">
+        <img src="image4.jpg" alt="Image 4" onclick="openModal('image4.jpg')">
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="zoom-buttons">
+            <button onclick="zoomIn()">Zoom In (+)</button>
+            <button onclick="zoomOut()">Zoom Out (-)</button>
+        </div>
+    </div>
+
+    <p id="zoomLevel">Zoom Level: 100%</p>
+
+    <script>
+        var zoomLevel = 100; // Initial zoom level
+
+        // Function to open the modal and display the clicked image
+        function openModal(imageSrc) {
+            var modal = document.getElementById("myModal");
+            var modalImage = document.getElementById("modalImage");
+
+            modal.style.display = "block";
+            modalImage.src = imageSrc;
+            zoomLevel = 100; // Reset zoom level
+            updateZoomLevel();
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Function to zoom in
+        function zoomIn() {
+            if (zoomLevel < 200) {
+                zoomLevel += 10;
+                updateZoomLevel();
+            }
+        }
+
+        // Function to zoom out
+        function zoomOut() {
+            if (zoomLevel > 100) {
+                zoomLevel -= 10;
+                updateZoomLevel();
+            }
+        }
+
+        // Function to update the zoom level display
+        function updateZoomLevel() {
+            var zoomLevelText = document.getElementById("zoomLevel");
+            zoomLevelText.innerText = "Zoom Level: " + zoomLevel + "%";
+
+            var modalImage = document.getElementById("modalImage");
+            modalImage.style.width = zoom
+
+}
